@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const Aluno = require("../models/aluno");
 
-router.get("/todos", async(req, res) => {
+router.get("/todos/:id", async(req, res) => {
     try {
-        console.log("GET");
+        console.log(req);
        const alunos = await Aluno.find();
        return res.status(200).json(alunos);
     } catch (e) {
@@ -13,7 +13,7 @@ router.get("/todos", async(req, res) => {
 
 router.post("/todos", async(req, res) => {
     try {
-        console.log("POST");
+        console.log(req);
        const alunos = await Aluno.find();
        return res.status(200).json(alunos);
     } catch (e) {
