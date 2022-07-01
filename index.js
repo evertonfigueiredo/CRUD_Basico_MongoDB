@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-//Teste
+
 const alunoRouter = require("./routes/alunoRoutes.js");
 
 const dbName = "pessoa";
