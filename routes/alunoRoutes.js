@@ -1,19 +1,18 @@
 const router = require('express').Router();
 const Aluno = require("../models/aluno");
 
-router.get("/todos/:id", async(req, res) => {
+router.get("/unico/:id", async(req, res) => {
     try {
-        console.log(req);
-       const alunos = await Aluno.find();
+        console.log(req.params.id);
+       const alunos = await Aluno.find({_id: req.params.id});
        return res.status(200).json(alunos);
     } catch (e) {
         return res.status(400).json({error: "Não foi possivel" + e})
     }
 });
 
-router.post("/todos", async(req, res) => {
+router.get("/todos", async(req, res) => {
     try {
-        console.log(req);
        const alunos = await Aluno.find();
        return res.status(200).json(alunos);
     } catch (e) {
